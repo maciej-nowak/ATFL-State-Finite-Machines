@@ -1,0 +1,9 @@
+The program loads subsequent lines from the standard entry and analyze each line (without the end of the line) using regular expressions as much as possible.
+
+
+Dla każdego napisu należy sprawdzić, czy zadany napis jest potęgą liczby
+100.
+Jeśli napis spełnia tak określony warunek, należy wypisać na
+standardowym wyjściu 'true', w przeciwnym razie — 'false'.
+
+For each inscription, program checks whether the given string is the power of the number 100. If the subtitle fulfills this condition, program writes to standard output 'true', otherwise - 'false'.

@@ -1,0 +1,3 @@
+The program loads subsequent lines from the standard entry and analyze each line (without the end of the line) using regular expressions as much as possible.
+
+For each line the program checks if the subtitle is made up of alternates small and capital letters. The inscription can start and end small or capital letter. Polish characters are included. The inscription must consist of at least 2 characters. If the subtitle fulfills this condition, program writes to standard output 'true', otherwise - 'false'.

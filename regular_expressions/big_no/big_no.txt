@@ -1,0 +1,3 @@
+The program loads subsequent lines from the standard entry and analyze each line (without the end of the line) using regular expressions as much as possible.
+
+For each inscription, program checks whether the given string is "NO" or "NO" in which "E" or "O" respectively occur at least 6 times, after there are at least 3 exclamation marks. If the subtitle fulfills this condition, please program writes to standard output 'true', otherwise - 'false'.
