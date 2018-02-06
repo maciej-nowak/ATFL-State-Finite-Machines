@@ -1,0 +1,5 @@
+The program reads the finite state machine (without weights) from standard input. Then, read the following lines from file specified as an argument. If the string is accepted by the machine should be written YES, a space and a given string, otherwise - NO, space and the given string.
+
+If there is non-determinism in the machine, the first one transition from those given on the standard input is selected.
+
+The program does not check whether the text has been loaded from the standard input is the correct description of the machine.

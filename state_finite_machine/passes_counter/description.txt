@@ -1,0 +1,1 @@
+At the input, the description of the machine in the AT & T format was given, the program writes out the number of passes in the machine at the exit.

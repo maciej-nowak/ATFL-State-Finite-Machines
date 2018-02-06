@@ -1,0 +1,9 @@
+# machine accepting the words "ab * c" (b duplicated any number of times) and "cat"
+0 1 a
+1 1 b
+1 2 c
+0 3 k
+3 4 o
+4 5 t
+2
+5

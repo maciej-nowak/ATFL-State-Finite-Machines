@@ -1,0 +1,22 @@
+Determinizacja automatu
+=======================
+
+Program powinien wczytać niedeterministyczny automat skończenie
+stanowy (bez wag) ze standardowego wejścia. Automat nie będzie
+zawierać epsilon-przejść.
+
+Na wejściu należy wypisać automat deterministyczny równoważny
+automatowi zadanemu na wejściu. Automat ten powinien być mieć
+stany posortowane według
+- minimalnej odległości od stanu początkowego
+- możliwie "niskiego" (w kodzie ASCII) znaku etykietujące przejście
+  od stanu bliżej stanu początkowego.
+
+Przejścia powinny być posortwanego według znaku, jakim są etykietowane
+(wg kodów ASCII).
+
+Program nie musi sprawdzać, czy tekst wczytany ze standardowego
+wejścia jest poprawnym opisem automatu.
+
+POINTS: 18
+DEADLINE: 2014-12-04 23:00
