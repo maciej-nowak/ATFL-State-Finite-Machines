@@ -1,0 +1,76 @@
+letters = ("i" | "u" | "y" | "e" | "ę" | "a" | "ą" | "o" | "ó" | "b" | "c" | "ć" | "d" | "f" | "g" | "h" | "j" | "k" | "l" | "ł" | "m" | "n" | "ń" | "p" | "r" | "s" | "ś" | "t" | "w" | "z" | "ź" | "ż");
+
+units = ("0" : "") | ("1" : "jeden ") | ("2" : "dwa ") | ("3" : "trzy ") | ("4" : "cztery ") | ("5" : "pięć ") | ("6" : "sześć ") | ("7" : "siedem ") | ("8" : "osiem ") | ("9" : "dziewięć ");
+
+tens = ("0" : "") | ("1" : "dziesięć ") | ("2" : "dwadzieścia ") | ("3" : "trzydzieści ") | ("4" : "czterdzieści ") | ("5" : "pięćdziesiąt ") | ("6" : "sześćdziesiąt ") | ("7" : "siedemdziesiąt ") | ("8" : "osiemdziesiąt ") | ("9" : "dziewięćdziesiąt ");
+
+hundreads = ("0" : "") | ("1" : "sto ") | ("2" : "dwieście ") | ("3" : "trzysta ") | ("4" : "czterysta ") | ("5" : "pięćset ") | ("6" : "sześćset ") | ("7" : "siedemset ") | ("8" : "osiemset ") | ("9" : "dziewięćset ");
+
+dziesiatych = ("" : "dziesiątych");
+dziesiatych_wyjatki = ("jeden dziesiątych" : "jedna dziesiąta") | ("dwa dziesiątych" : "dwie dziesiąte") | ("trzy dziesiątych" : "trzy dziesiąte") | ("cztery dziesiątych" : "cztery dziesiąte");
+
+setnych = ("" : "setnych");
+setnych_wyjatki = ("jeden setnych" : "jedna setna") | ("dwa setnych" : "dwie setne") | ("trzy setnych" : "trzy setne") | ("cztery setnych" : "cztery setne");
+filtr_setki = ("ia jedna setna" : "ia jeden setnych") | ("ści jedna setna" : "ści jeden setnych") | ("ąt jedna setna" : "ąt jeden setnych");
+
+tysiecznych = ("" : "tysięcznych"); 
+tysiecznych_wyjatki = ("jeden tysięcznych" : "jedna tysięczna") | ("dwa tysięcznych" : "dwie tysięczne") | ("trzy tysięcznych" : "trzy tysięczne") | ("cztery tysięcznych" : "cztery tysięczne"); 
+filtr_tysiace = ("ia jedna tysięczna" : "ia jeden tysięcznych") | ("ści jedna tysięczna" : "ści jeden tysięcznych") | ("ąt jedna tysięczna" : "ąt jeden tysięcznych");
+
+filtr = filtr_setki | filtr_tysiace;
+
+wyjatki = dziesiatych_wyjatki | setnych_wyjatki | tysiecznych_wyjatki;
+
+zero = ("0" : "zero");
+zero_przecinek = ("0," : "");
+minus = ("-" : "minus ");
+przecinek = ("," : "i ");
+
+nascie = ("dziesięć jeden" : "jedenaście") | ("dziesięć dwa" : "dwanaście") | ("dziesięć trzy" : "trzynaście") | ("dziesięć cztery" : "czternaście") | ("dziesięć pięć" : "pietnaście") | ("dziesięć sześć" : "szesnaście") | ("dziesięć siedem" : "siedemnaście") | ("dziesięć osiem" : "osiemnaście") | ("dziesięć dziewięć" : "dziewiętnaście");
+
+nasciee = ("11" : "jedenaście ") | ("12" : "dwanaście ") | ("13" : "trzynaście ") | ("14" : "czternaście ") | ("15" : "pietnaście ") | ("16" : "szesnaście ") | ("17" : "siedemnaście ") | ("18" : "osiemnaście ") | ("19" : "dziewiętnaście ");
+
+naprawa = (" [EOS]" : "[EOS]");
+
+handle_hundreads_fractions = "," hundreads tens units tysiecznych;
+handle_tens_fractions = "," tens units setnych;
+handle_nascie_fractions = "," nasciee setnych;
+handle_units_fractions = "," units dziesiatych;
+
+handle_hundreads_integers = hundreads tens units przecinek;
+handle_tens_integers = tens units przecinek;
+handle_tenss_integers = tens units;
+handle_units_integers = units przecinek;
+
+fractions = handle_hundreads_fractions | handle_tens_fractions | handle_units_fractions;
+integers = handle_hundreads_integers | handle_tens_integers | handle_tenss_integers | handle_units_integers | zero | zero_przecinek;
+
+allChars = Optimize[
+  "[1]" |   "[2]" |   "[3]" |   "[4]" |   "[5]" |   "[6]" |   "[7]" |   "[8]" |   "[9]" |  "[10]" |
+ "[11]" |  "[12]" |  "[13]" |  "[14]" |  "[15]" |  "[16]" |  "[17]" |  "[18]" |  "[19]" |  "[20]" |
+ "[21]" |  "[22]" |  "[23]" |  "[24]" |  "[25]" |  "[26]" |  "[27]" |  "[28]" |  "[29]" |  "[30]" |
+ "[31]" |  "[32]" |  "[33]" |  "[34]" |  "[35]" |  "[36]" |  "[37]" |  "[38]" |  "[39]" |  "[40]" |
+ "[41]" |  "[42]" |  "[43]" |  "[44]" |  "[45]" |  "[46]" |  "[47]" |  "[48]" |  "[49]" |  "[50]" |
+ "[51]" |  "[52]" |  "[53]" |  "[54]" |  "[55]" |  "[56]" |  "[57]" |  "[58]" |  "[59]" |  "[60]" |
+ "[61]" |  "[62]" |  "[63]" |  "[64]" |  "[65]" |  "[66]" |  "[67]" |  "[68]" |  "[69]" |  "[70]" |
+ "[71]" |  "[72]" |  "[73]" |  "[74]" |  "[75]" |  "[76]" |  "[77]" |  "[78]" |  "[79]" |  "[80]" |
+ "[81]" |  "[82]" |  "[83]" |  "[84]" |  "[85]" |  "[86]" |  "[87]" |  "[88]" |  "[89]" |  "[90]" |
+ "[91]" |  "[92]" |  "[93]" |  "[94]" |  "[95]" |  "[96]" |  "[97]" |  "[98]" |  "[99]" | "[100]" |
+"[101]" | "[102]" | "[103]" | "[104]" | "[105]" | "[106]" | "[107]" | "[108]" | "[109]" | "[110]" |
+"[111]" | "[112]" | "[113]" | "[114]" | "[115]" | "[116]" | "[117]" | "[118]" | "[119]" | "[120]" |
+"[121]" | "[122]" | "[123]" | "[124]" | "[125]" | "[126]" | "[127]" | "[128]" | "[129]" | "[130]" |
+"[131]" | "[132]" | "[133]" | "[134]" | "[135]" | "[136]" | "[137]" | "[138]" | "[139]" | "[140]" |
+"[141]" | "[142]" | "[143]" | "[144]" | "[145]" | "[146]" | "[147]" | "[148]" | "[149]" | "[150]" |
+"[151]" | "[152]" | "[153]" | "[154]" | "[155]" | "[156]" | "[157]" | "[158]" | "[159]" | "[160]" |
+"[161]" | "[162]" | "[163]" | "[164]" | "[165]" | "[166]" | "[167]" | "[168]" | "[169]" | "[170]" |
+"[171]" | "[172]" | "[173]" | "[174]" | "[175]" | "[176]" | "[177]" | "[178]" | "[179]" | "[180]" |
+"[181]" | "[182]" | "[183]" | "[184]" | "[185]" | "[186]" | "[187]" | "[188]" | "[189]" | "[190]" |
+"[191]" | "[192]" | "[193]" | "[194]" | "[195]" | "[196]" | "[197]" | "[198]" | "[199]" | "[200]" |
+"[201]" | "[202]" | "[203]" | "[204]" | "[205]" | "[206]" | "[207]" | "[208]" | "[209]" | "[210]" |
+"[211]" | "[212]" | "[213]" | "[214]" | "[215]" | "[216]" | "[217]" | "[218]" | "[219]" | "[220]" |
+"[221]" | "[222]" | "[223]" | "[224]" | "[225]" | "[226]" | "[227]" | "[228]" | "[229]" | "[230]" |
+"[231]" | "[232]" | "[233]" | "[234]" | "[235]" | "[236]" | "[237]" | "[238]" | "[239]" | "[240]" |
+"[241]" | "[242]" | "[243]" | "[244]" | "[245]" | "[246]" | "[247]" | "[248]" | "[249]" | "[250]" |
+"[251]" | "[252]" | "[253]" | "[254]" | "[255]"];
+
+export PROCESS = CDRewrite[handle_hundreads_fractions, "", "", allChars*] @ CDRewrite[handle_nascie_fractions, "", "", allChars*] @ CDRewrite[fractions, "", "", allChars*] @ CDRewrite[integers, "", "", allChars*] @ CDRewrite[nascie, "", "", allChars*] @ CDRewrite[minus, "", "", allChars*] @ CDRewrite[wyjatki, "", "", allChars*] @ CDRewrite[filtr, "", "", allChars*] @ CDRewrite[naprawa, "", "", allChars*];
