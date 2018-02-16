@@ -1,22 +1,9 @@
-Determinizacja automatu
-=======================
+The program reads the finite state machine (without weights) from standard input. The machines does not contains epsilon-pass.
 
-Program powinien wczytać niedeterministyczny automat skończenie
-stanowy (bez wag) ze standardowego wejścia. Automat nie będzie
-zawierać epsilon-przejść.
+The deterministic equivalent of nondeterministic machine entered in the input is written as the output. This machine has states sorted by:
+- the minimum distance from the initial state
+- possibly the "low" (in ASCII code) label that labels the transition from the state closer to the initial state.
 
-Na wejściu należy wypisać automat deterministyczny równoważny
-automatowi zadanemu na wejściu. Automat ten powinien być mieć
-stany posortowane według
-- minimalnej odległości od stanu początkowego
-- możliwie "niskiego" (w kodzie ASCII) znaku etykietujące przejście
-  od stanu bliżej stanu początkowego.
+Transitions are sorted according to the sign they are labeled (according to ASCII codes).
 
-Przejścia powinny być posortwanego według znaku, jakim są etykietowane
-(wg kodów ASCII).
-
-Program nie musi sprawdzać, czy tekst wczytany ze standardowego
-wejścia jest poprawnym opisem automatu.
-
-POINTS: 18
-DEADLINE: 2014-12-04 23:00
+The program does not check whether the text has been loaded from the standard input is the correct description of the machine.
